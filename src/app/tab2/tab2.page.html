@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      POSTING
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button expand="full" (click)="addItem()">Create New Post</ion-button>
+
+  <div class="services">
+    <div class="lower-box">
+      <div  class="innerService" *ngFor="let item of product">
+        <div class="upperBox1" >
+          <div class="image">
+            <ion-img [src]="item.images[0].filePath"></ion-img>
+          </div>
+          <div class = "title">
+            <h3>{{item.name}}</h3>
+          </div>
+
+          <div class="menu" >
+            <h3> <ion-icon class="delete-box" name="trash" (click)="Delete(item.id)"></ion-icon> </h3>
+          </div>
+
+          <div class="amount">
+            <h3>E{{item.price}}</h3>
+          </div>
+
+          <div class="edit">
+            <a>
+            <ion-button class="btn" (click)="UpdateItem(item.id)">Edit
+            </ion-button>
+          </a>
+          </div>
+
+        </div>
+        <div *ngIf="item.quantity > 1">
+          <h2>Quantity: {{item.quantity}}</h2>
+        </div>
+        <div *ngIf="item.quantity < 1">
+          <h2 >Quantity: <a style="color: rgb(241, 6, 53);"> Out of Stock</a></h2>
+        </div>
+        <ion-button *ngIf="item.sold === false" expand="full" (click)="SoldUpdate(item.id)" >Sold</ion-button>
+        <ion-button  *ngIf="!item.sold === false" expand="full" (click)="UnSoldUpdate(item.id)" >UnSold</ion-button>
+      </div>
+    </div>
+
+   </div>
+</ion-content>

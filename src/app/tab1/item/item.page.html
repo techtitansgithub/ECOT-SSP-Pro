@@ -1,0 +1,21 @@
+
+ <ion-card (click)="redirectToDetails(product.id)">
+  <ion-img src="{{product.images[0]?.filePath}}" ></ion-img>
+  <ion-card-content>
+  <ion-label class="ion-text-wrap">
+    <ion-row >
+      <ion-col size="5">
+        <ion-text>
+          <strong>{{product.name}}</strong>
+        </ion-text>
+      </ion-col>
+      <ion-col size="4" class="rating">
+        <app-star-rating [rate]="product.rating" [max]="5" [readOnly]="true"></app-star-rating>
+      </ion-col>
+      <ion-col size="3">
+       E {{product.price}}
+      </ion-col>
+    </ion-row>
+  </ion-label>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      ECOT SSP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+      <mat-form-field class="centered-form-field">
+        <mat-label>Category</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="onCategorySelected(selectedCategory)">
+          <mat-option *ngFor="let type of categories" [value]="type.id" [ngClass]="{'active': type.id === selectedCategory}">
+            {{ type.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+  <mat-card class="sort">
+    <mat-card-header>
+      <mat-card-title>Sort by Price</mat-card-title>
+    </mat-card-header>
+    <div class="pricesort">
+      <div fxFlex fxLayoutAlign="space-between">
+      <mat-form-field class="theme-select" appearance="outline">
+        <mat-select [formControl]="minPriceControl">
+          <mat-option value="">-Minimum-</mat-option>
+          <mat-option value="1" >E 100</mat-option>
+          <mat-option value="2">E 500</mat-option>
+          <mat-option value="3">E 1,000</mat-option>
+        </mat-select>
+      </mat-form-field>
+  <div class="m-l-auto">
+      <mat-form-field class="theme-select" appearance="outline">
+        <mat-select [formControl]="maxPriceControl">
+          <mat-option value="">-Maximum-</mat-option>
+          <mat-option value="1" >E 1, 000</mat-option>
+          <mat-option value="2">E 2, 000</mat-option>
+          <mat-option value="2">E 5, 000</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+  </div>
+  </div>
+  </mat-card>
+
+  <mat-card>
+    <button  mat-raised-button color="accent" class="button-lg" type="button" (click)="onReset()"
+    >Clear All Filters</button>
+  </mat-card>
+
+  <div fxLayout="row wrap" fxLayoutAlign="grid" class="col-gap" >
+    <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="33" fxFlex.xl="33"  *ngFor="let item of product">
+        <app-item [product]="item"></app-item>
+  </div>
+  </div>
+
+  <mat-card fxFlex.xs="100" fxFlex.sm="50"
+  fxFlex.md="50" fxFlex.lg="33" fxFlex.xl="33" fxFlexAlign="end end">
+
+    <mat-paginator
+    class="paging"
+    [length]="TotalCount"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[2,5,6,10,15]"
+    [pageIndex]=""
+    [showFirstLastButtons]="showFirstLastButtons"
+    aria-label="Select page"
+    (page)="handlePageEvent($event)"
+    [hidePageSize]="hidePageSize"
+  >
+  </mat-paginator>
+</mat-card>
+
+</ion-content>

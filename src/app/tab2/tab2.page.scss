@@ -1,0 +1,85 @@
+ion-content{
+
+
+    .services{
+        margin: 1rem;
+        .lower-box{
+            .wrapper{
+                max-width:100%;
+                border: none;
+                display: flex;
+                overflow-x: auto;
+                .item{
+                    min-width:110px;
+                    height:110px;
+                    line-height:110px;
+                    margin-right:10px;
+    
+                    #img{
+                        width:100%;
+                        height:110px;
+                        border-radius:10px;
+                    }
+                }
+            }
+        }
+    
+        .innerService{
+            .upperBox1{
+                background-color: #fff;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 40% 35% 15% 10%;
+    grid-template-rows: 15% 35% 35% 15%;
+    gap: 5px 5px;
+    grid-template-areas: "image title title menu" 
+    "image orderId orderId orderId" 
+    "image amount status status" "image time edit edit" ;
+    .image{
+        grid-area: image;
+        img{
+            padding: 10px ;
+            border-radius: 5px;
+            height: auto;
+            width: 100%;
+    
+        }
+    }
+    .title{
+        grid-area: title;
+        h3{
+            font-size: 22px;
+        }
+    }
+    .menu{
+        grid-area: menu;
+        justify-self: center;
+    
+        .delete-box{
+            margin-right: 2rem;
+            color: red;
+        }
+    }
+    .amount{
+        grid-area: amount;
+        align-self: start;
+        justify-self: start;
+        margin-top: -25px;
+    }
+    .time{
+        grid-area: time;
+        p{
+            margin-top: -30px;
+        }
+    }
+    .edit{
+        grid-area: edit;
+        margin-top: -64px;
+        margin-right: 10px;
+    }
+        }
+    }
+    }
+    }

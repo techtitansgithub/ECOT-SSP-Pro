@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <div class="container" >
+
+
+  <ion-img src="{{product?.images[0]?.filePath}}" style="height: 200px;"></ion-img>
+
+
+      <div *ngIf="showError" class="erro-warning">
+          <p>{{errorMessage}}</p>
+      </div>
+      <form  [formGroup]="ratingForm" autocomplete="off" novalidate (ngSubmit)="createRating(ratingForm.value)" >
+
+
+          <h6>Tell Others What You Think?</h6>
+
+            <ion-input type="text" id="reviewBody" formControlName="reviewBody" class="form-control"></ion-input>
+
+
+
+          <h6>Give Your Rating Out Of 5</h6>
+
+            <ion-input type="number" min="1"  max="5"  pattern="[1-5]" id="starsCount" formControlName="starsCount" class="form-control"></ion-input>
+
+
+
+        <div style="display: flex; justify-content: space-between;">
+          <ion-button class="login-button" expand="block" type="submit" [disabled]="!ratingForm.valid">
+            Save Your Rating
+          </ion-button>
+
+          <ion-button class="login-button" expand="block" type="submit" (click)="onBack()">
+            Cancel
+          </ion-button>
+        </div>
+      </form>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+.about {
+    margin: 2rem 1rem 2rem 1rem;
+  
+    h1 {
+      font-weight: 600;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  ion-button{
+    margin: 0.5rem;
+  }
+
+  .image {
+    cursor: pointer;
+  }
+  
+  .image.selected {
+    border: 2px solid blue; /* Add a border to indicate selection */
+  }
+  .more{
+    margin-bottom: 5rem;
+  }
+
+  .block {
+    width: 100%;
+    height: 700px;
+  }
+  
+  ion-modal {
+    --height: 100%;
+  }
+  
+  .ratings{
+    margin-bottom: 1rem;
+  }

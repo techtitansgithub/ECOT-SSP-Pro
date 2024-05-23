@@ -1,0 +1,29 @@
+.user-details, .version{
+    margin: 20px;
+}
+.version{
+   p{
+    text-align: center;
+   }
+}
+
+.user-name{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: -40px;
+
+}
+.user-email{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #A6ABB1;
+   
+}
+.setting-icon{
+    margin-left: 0rem;
+    margin-right: 1rem;
+}
+ion-button{
+    color: var(--ion-color-step-100);
+}

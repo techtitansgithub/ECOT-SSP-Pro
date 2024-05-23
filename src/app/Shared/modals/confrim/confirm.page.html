@@ -1,0 +1,29 @@
+<div class="app-popup">
+   <div class="app-popup-content text-center">
+     <mat-card-title>{{data.message}}</mat-card-title>
+     <mat-card-actions>
+      <button
+      mat-flat-button
+      color="primary"
+      matTooltipPosition="above"
+      class="m-l-8"
+      matTooltipHideDelay="100000"
+      [mat-dialog-close]="false"
+      >
+      No
+      </button>
+      <span class="flex-1-auto"></span>
+      <button
+      mat-flat-button
+      color="warn"
+      matTooltipPosition="left"
+      class="m-l-8"
+      matTooltipHideDelay="100000"
+      [mat-dialog-close]="true"
+      >
+      Yes
+      </button>
+    </mat-card-actions>
+
+   </div>
+ </div>

@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="user-details">
+    <h1 class="user-name">{{loggedInUser.firstName}} {{loggedInUser.lastName}}<br><br></h1>
+    <p class="user-email">{{loggedInUser.email}}</p>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <!-- Ionic List -->
+      <ion-list>
+        <ion-item (click)="redirectToDetails()">
+          <ion-icon name="cart-outline" class="setting-icon"></ion-icon>
+          <ion-label>
+            Orders
+          </ion-label>
+        </ion-item>
+        <ion-item (click)="redirectToDetailsBooking()">
+          <ion-icon name="book-outline" class="setting-icon"></ion-icon>
+          <ion-label>
+            Bookings
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="redirectToDetailsNote()">
+          <ion-icon name="notifications-outline" class="setting-icon"></ion-icon>
+          <ion-label>
+            Notifications
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- // -->
+  <ion-card>
+
+
+    <ion-card-content>
+      <!-- Ionic List -->
+      <ion-list>
+        <ion-item lines="none">
+          <ion-icon name="power" class="setting-icon"></ion-icon>
+          <ion-label (click)="onLogout()">
+            Sign out
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div class="version">
+    <p>ECOT SSP</p>
+  </div>
+</ion-content>

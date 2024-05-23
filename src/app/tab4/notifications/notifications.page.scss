@@ -1,0 +1,46 @@
+
+.brand-heading {
+    font-weight: 400;
+    font-size: 1.5rem;
+      margin: 16px; /* Adjust spacing as needed */
+    }
+    .icon-column {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ion-button{
+      color: var(--ion-color-step-100);
+    }
+  
+    
+    .title {
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 2rem;
+      padding-left: 1.6rem;
+    }
+  
+    .cart-content{
+      padding-top: 6rem;
+    .empty-cart {
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #c7c7c7;
+  
+      ion-icon {
+        font-size: 8rem;
+      }
+  
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  
+  }
+  .loc{
+    margin-left: 1rem;
+  }

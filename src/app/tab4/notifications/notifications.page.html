@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+     Notifications
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ng-template #elseBlock>
+    <div class="cart-content">
+      <div class="empty-cart">
+        <ion-icon name="cart"></ion-icon>
+        <p>No notification available...!</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="orders?.length > 0 || bookings?.length > 0 ; else elseBlock">
+    <div *ngFor="let item of orders">
+      <ion-card>
+    <ion-item class="custom-item" >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="8">
+            <p class="item-list">Product: {{item.productName}} </p>
+            <p class="item-list">Seller: {{item.sellerName}} {{item.sellerSurName}}</p>
+          </ion-col> 
+          <ion-col size="4" class="icon-column">
+            <ion-button *ngIf="item.orderApprove === true" color="danger" (click)="redirectToDetails(item.id)">
+              <ion-icon name="eye" class="custom-icon"></ion-icon>
+            </ion-button> 
+            <ion-button *ngIf="item.orderApprove !== true" color="danger" (click)="ApproveOrderUpdate(item.id)">
+              Approve delivery
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+  </div>
+
+  <div *ngFor="let item of bookings">
+    <ion-card>
+  <ion-item class="custom-item">
+    <ion-grid>
+      <ion-row>
+        <!-- Left column for item list -->
+        <ion-col size="8">
+          <p class="item-list">Service: {{item.productName}} Price:{{item.productPrice}}</p>
+          <p class="item-list">From: {{item.sellerName}} {{item.sellerSurName}}</p>
+        </ion-col>
+        <!-- Right column for icon, centered vertically -->
+        <ion-col size="4" class="icon-column">
+          <p class="item-list">Time:{{item.bookDate |  date: 'medium'}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-item>
+  <h4 class="loc"> <ion-icon name="location"></ion-icon>{{item?.sellerAddress}} </h4>
+
+  <ion-button expand="full" fill="clear" class="custom-button" (click)="redirectToRating(item?.productId)"
+  >
+   Rate
+  </ion-button>
+</ion-card>
+</div>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+ion-header {
+    ion-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+  }
+
+  .custom-button {
+    border: 1px solid  var(--ion-color-primary); /* Adjust the color and size as needed */
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 1.8rem;
+  }
+  .call-driver{
+    margin-right: 15px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+  }
+  .location{
+margin-right: 1rem;
+  }
+  
+.heading{
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+  margin-top: 2rem;
+  text-align: left;
+  margin-bottom: 0rem;
+}
+.qu{
+  margin-left: 1rem;
+}

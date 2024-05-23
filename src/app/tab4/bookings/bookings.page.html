@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+     Bookings
+    </ion-title>
+  </ion-toolbar>
+  <ion-button id="open-modal" expand="block" class="fixed-bottom">Bookings</ion-button>
+</ion-header>
+
+<ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Bookings</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content >
+      <div *ngFor="let item of allBookings">
+        <ion-card>
+      <ion-item class="custom-item">
+        <ion-grid>
+          <ion-row>
+            <!-- Left column for item list -->
+            <ion-col size="8">
+              <p class="item-list">Service: {{item.productName}} Price:{{item.productPrice}}</p>
+              <p class="item-list">Booked:{{item.buyerName}} {{item.buyerSurName}}</p>
+
+            </ion-col>
+
+            <!-- Right column for icon, centered vertically -->
+            <ion-col size="4" class="icon-column">
+              <p class="item-list">Time:{{item.bookDate |  date: 'medium'}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+    </div>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-content [fullscreen]="true">
+
+  <ng-template #elseBlock>
+    <div class="cart-content">
+      <div class="empty-cart">
+        <ion-icon name="cart"></ion-icon>
+        <p>No booking available...!</p>
+      </div>
+    </div>
+  </ng-template>
+  <div *ngIf="bookings?.length > 0 ;else elseBlock">
+    <div *ngFor="let item of bookings">
+      <ion-card>
+    <ion-item class="custom-item" >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="8">
+            <p class="item-list">Service: {{item.productName}}  Price:E{{item.productPrice}}</p>
+            <p class="item-list">Booking: {{item.buyerName}} {{item.buyerSurName}}</p>
+            <p class="item-list">Time: {{item.bookDate |  date: 'short'}}</p>
+          </ion-col>
+
+          <ion-grid size="4" class="icon-column">
+            <ion-row>
+            <ion-button  (click)="redirectToDetailsconfirm(item.id)">
+              Confirm
+            </ion-button>
+          </ion-row>
+          <ion-row>
+            <ion-button  (click)="redirectToDetailsconfirm(item.id)">
+              Adjust
+            </ion-button>
+          </ion-row>
+        </ion-grid>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+  </div>
+  </div>
+
+</ion-content>
+

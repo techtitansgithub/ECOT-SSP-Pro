@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Set Booking Time </ion-title>
+    <ion-button slot="end" (click)="closeModal()">Close</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-item>
+    <ion-label position="floating">Enter Your Address</ion-label>
+    <ion-input [(ngModel)]="address"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-datetime value="2024-04-21T00:00:00" min="2024-01-01T00:00:00" max="2026-05-31T23:59:59"
+    displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="selectedDateTime"></ion-datetime>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" (click)="Booking()">Save Booking</ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

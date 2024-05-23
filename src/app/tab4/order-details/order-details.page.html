@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+     Order detail
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{order?.buyerName}} {{order?.buyerSurName}}</ion-card-title>
+    </ion-card-header>
+    <h2> <ion-icon name="location"></ion-icon>{{order?.buyerAddress}} </h2>
+    <h2 class="qu">Quantity: {{order?.quantity}}</h2>
+  </ion-card>
+
+  <ion-button expand="full" fill="clear" class="custom-button" (click)="RecievedOrderUpdate(order?.id)"
+  *ngIf="order?.orderReceived === false">
+   Make Delivery
+  </ion-button>
+
+  <ion-button expand="full" fill="clear" class="custom-button"
+   *ngIf="order?.orderReceived === true && order.orderApprove === true">
+    Delivered
+   </ion-button>
+
+
+
+   <ion-card >
+    <ion-img src="{{order?.filePath}}" ></ion-img>
+    <ion-card-content>
+    <ion-label class="ion-text-wrap">
+      <ion-row >
+        <ion-col size="6">
+          <ion-text>
+            <strong>{{order?.productName}}</strong>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6">
+         E {{order?.productPrice}}
+        </ion-col>
+      </ion-row>
+    </ion-label>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" fill="clear" class="custom-button" (click)="redirectToRating(order?.productId)"
+  *ngIf="order?.orderReceived === true && order.orderApprove === true">
+   Rate
+  </ion-button>
+</ion-content>

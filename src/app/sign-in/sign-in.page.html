@@ -1,0 +1,17 @@
+<div class="login-page">
+  <div class="form">
+    <h1>ECOT SSP</h1>
+    <div *ngIf="showError" class="erro-warning">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <form class="login-form" #form="ngForm" class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+      <input type="text" placeholder="username" class="form-control" #UserName="ngModel" name="Email"
+        [(ngModel)]="formModel.Email" required />
+      <input type="password" placeholder="password" class="form-control" #Password="ngModel" name="Password"
+        [(ngModel)]="formModel.Password" required />
+      <button [disabled]="form.invalid">Login</button>
+    </form>
+  </div>
+</div>
+

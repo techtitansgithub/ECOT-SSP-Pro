@@ -1,0 +1,41 @@
+.heading{
+    font-size: 32px;
+    font-weight: bold;
+    padding-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .erro-warning{
+    margin: 30px;
+    p{
+        color: red;
+    }
+  }
+  .input-item{
+    padding-left: 20px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #e2e2e2;
+    height: 70px;
+    ion-input{
+        margin-top: -12px;
+    }
+  }
+  .ion-item{
+    margin-top: 20px;
+  }
+  
+  .login-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    --border-radius: 12px;
+    margin-top: 10px;
+    --box-shadow: none;
+  }
+  
+   .bottom-item{
+    margin-bottom: 2rem;
+   }
+    
